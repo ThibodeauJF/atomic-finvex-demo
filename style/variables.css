@@ -1,0 +1,37 @@
+:root {
+  /* Primary colors */
+  --atomic-primary: #B6254F;
+  --atomic-primary-light: #E04E79;
+  --atomic-primary-dark: #B6254F;
+  --atomic-on-primary: #ffffff;
+  --atomic-ring-primary: rgba(224, 78, 121, 0.5);
+
+  /* Neutral colors */
+  --atomic-neutral-dark: #7E7573;
+  --atomic-neutral: #E7E3E3;
+  --atomic-neutral-light: #f5f2f2;
+
+  /* Semantic colors */
+  --atomic-background: #ffffff;
+  --atomic-on-background: #2F2C2B;
+  --atomic-success: #12a244;
+  --atomic-error: #ce3f00;
+  --atomic-visited: #752e9c;
+
+  /* Border radius */
+  --atomic-border-radius: 0.25rem;
+  --atomic-border-radius-lg: 0.75rem;
+  --atomic-border-radius-xl: 1rem;
+
+  /* Font */
+  --atomic-font-family: Lato, sans-serif;
+  --atomic-font-normal: 400;
+  --atomic-font-bold: 700;
+
+  /* Text size */
+  --atomic-text-base: 0.875rem; /* 14px */
+  --atomic-text-sm: 0.75rem; /* 12px */
+  --atomic-text-lg: 1rem; /* 16px */
+  --atomic-text-xl: 1.125rem; /* 18px */
+  --atomic-text-2xl: 1.5rem; /* 24px */
+}

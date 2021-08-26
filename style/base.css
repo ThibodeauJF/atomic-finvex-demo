@@ -1,0 +1,69 @@
+/* Basic non-Atomic Finvex Styling */
+:root {
+  --font-color: #504a49;
+  --bg-color: #f4f1f0;
+  --page-spacing: 16px;
+  --gap-x: 24px;
+  --gap-y: 16px;
+}
+
+body {
+  color: var(--font-color);
+  margin: 0;
+  font-family: Lato, sans-serif;
+}
+
+header,
+main {
+  padding-right: var(--page-spacing);
+  padding-left: var(--page-spacing);
+}
+
+header {
+  padding-top: var(--gap-y);
+  padding-bottom: var(--gap-y);
+  background-color: var(--bg-color);
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  display: none;
+  font-size: 16px;
+}
+
+.menu {
+  position: absolute;
+  left: var(--page-spacing);
+}
+
+nav a {
+  color: var(--font-color);
+  text-decoration: none;
+  margin-right: var(--gap-x);
+}
+
+@media only screen and (min-width: 1024px) {
+  :root {
+    --page-spacing: 32px;
+  }
+
+  nav {
+    display: flex;
+  }
+
+  header {
+    justify-content: flex-end;
+  }
+
+  .logo {
+    position: absolute;
+    left: var(--page-spacing);
+  }
+
+  .menu {
+    display: none;
+  }
+}

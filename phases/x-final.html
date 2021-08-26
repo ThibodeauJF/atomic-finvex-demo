@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finvex X: Final</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link rel="stylesheet" href="../style/base.css" />
+    <link rel="stylesheet" href="../style/layout.css" />
+    <link rel="stylesheet" href="../style/variables.css" />
+    <link rel="stylesheet" href="../style/custom.css" />
+    <script
+      type="module"
+      src="https://staticdev.cloud.coveo.com/atomic/latest/atomic.esm.js"
+    ></script>
+    <script>
+      (async () => {
+        await customElements.whenDefined("atomic-search-interface");
+        const searchInterface = document.querySelector(
+          "atomic-search-interface"
+        );
+
+        // Initialization
+        await searchInterface.initialize({
+          accessToken: "xxe1195d34-2a38-49ef-8da3-145f5dd3413a",
+          organizationId: "partnersummittechzamples12mdow6y",
+        });
+
+        searchInterface.executeFirstSearch();
+
+        // TODO: Add internationalization & field caption examples
+      })();
+    </script>
+  </head>
+  <body>
+    <atomic-search-interface>
+      <header>
+        <img class="menu" src="../img/menu.png" alt="Menu" />
+        <img class="logo" src="../img/logo.png" alt="Finvex" />
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">People</a>
+          <a href="#">Offices</a>
+          <a href="#">Resources & Tools</a>
+          <a href="#">Calendar</a>
+        </nav>
+        <div class="search-box"><atomic-search-box></atomic-search-box></div>
+      </header>
+      <main>
+        <div class="mobile-search-box">
+          <atomic-search-box></atomic-search-box>
+        </div>
+        <div class="facets">
+          <atomic-facet-manager>
+            <atomic-facet-v1
+              field="workdepartment"
+              label="Department"
+              display-values-as="box"
+            ></atomic-facet-v1>
+            <atomic-facet-v1 field="workteam" label="Team"></atomic-facet-v1>
+            <atomic-facet-v1 field="office" label="Office"></atomic-facet-v1>
+            <atomic-timeframe-facet field="workhiredate" label="Hired Date">
+              <atomic-timeframe unit="year" amount="1"></atomic-timeframe>
+              <atomic-timeframe unit="year" amount="3"></atomic-timeframe>
+              <atomic-timeframe unit="year" amount="5"></atomic-timeframe>
+              <atomic-timeframe unit="year" amount="10"></atomic-timeframe>
+            </atomic-timeframe-facet>
+          </atomic-facet-manager>
+        </div>
+        <div class="breadbox">
+          <atomic-breadbox></atomic-breadbox>
+        </div>
+        <div class="topbar">
+          <atomic-query-summary enable-duration="false"></atomic-query-summary>
+          <atomic-refine-toggle></atomic-refine-toggle>
+          <atomic-sort-dropdown>
+            <atomic-sort-expression
+              caption="Relevancy"
+              expression="relevancy"
+            ></atomic-sort-expression>
+            <atomic-sort-expression
+              caption="Senority"
+              expression="workhiredate ascending"
+            ></atomic-sort-expression>
+            <atomic-sort-expression
+              caption="Recently Hired"
+              expression="workhiredate descending"
+            ></atomic-sort-expression>
+          </atomic-sort-dropdown>
+        </div>
+        <div class="results">
+          <atomic-result-list-v1
+            display="list"
+            image="small"
+            fields-to-include="workhiredate,office,workteam,workdepartment,worktitle,picture,telephone,email"
+          >
+            <atomic-result-template>
+              <template>
+                <style>
+                  .field {
+                    display: inline-flex;
+                    white-space: nowrap;
+                    align-items: center;
+                  }
+
+                  .field > img,
+                  .field-label {
+                    margin-right: 5px;
+                  }
+
+                  .field-label {
+                    font-weight: var(--atomic-font-bold);
+                  }
+                </style>
+                <atomic-result-section-visual>
+                  <atomic-result-image field="picture"></atomic-result-image>
+                </atomic-result-section-visual>
+                <atomic-result-section-title>
+                  <atomic-result-text field="title"></atomic-result-text>
+                </atomic-result-section-title>
+                <atomic-result-section-title-metadata>
+                  <atomic-result-text field="worktitle"></atomic-result-text>
+                </atomic-result-section-title-metadata>
+                <atomic-result-section-excerpt>
+                  <atomic-result-text field="excerpt"></atomic-result-text>
+                </atomic-result-section-excerpt>
+                <atomic-result-section-bottom-metadata>
+                  <atomic-result-fields-list-v1>
+                    <div class="field">
+                      <img src="../img/department.svg" alt="department" />
+                      <atomic-result-text
+                        field="workdepartment"
+                      ></atomic-result-text>
+                    </div>
+                    <div class="field">
+                      <img src="../img/location.svg" alt="office" />
+                      <atomic-result-text field="office"></atomic-result-text>
+                    </div>
+                    <div class="field">
+                      <img src="../img/email.svg" alt="email" />
+                      <atomic-result-text field="email"></atomic-result-text>
+                    </div>
+                    <div class="field">
+                      <img src="../img/phone.svg" alt="phone" />
+                      <atomic-result-text
+                        field="telephone"
+                      ></atomic-result-text>
+                    </div>
+                    <span class="field">
+                      <span class="field-label">Joined:</span>
+                      <atomic-result-date
+                        field="workhiredate"
+                      ></atomic-result-date>
+                    </span>
+                  </atomic-result-fields-list-v1>
+                </atomic-result-section-bottom-metadata>
+              </template>
+            </atomic-result-template>
+          </atomic-result-list-v1>
+        </div>
+        <div class="pagination">
+          <atomic-load-more-results></atomic-load-more-results>
+        </div>
+        <div class="status">
+          <atomic-query-error></atomic-query-error>
+          <atomic-no-results-v1></atomic-no-results-v1>
+        </div>
+      </main>
+    </atomic-search-interface>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+/* Atomic Building Blocks Demo */
+.mobile-search-box,
+.facets,
+.breadbox,
+.topbar,
+.results,
+.pagination,
+.status {
+  justify-content: center;
+  background-color: #e04e79;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  padding: var(--gap-x);
+  margin-bottom: var(--gap-x);
+}
+
+.facets {
+  height: 800px;
+}
+
+.results {
+  height: 500px;
+}
+
+.search-box {
+  color: white;
+  padding: 10px 0;
+  border-radius: 15px;
+  background-color: #e04e79;
+  text-align: center;
+}
