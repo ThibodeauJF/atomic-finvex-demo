@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "start": "npx serve www -l 3333"
+    }
+}

@@ -2,7 +2,7 @@
   /* Primary colors */
   --atomic-primary: #B6254F;
   --atomic-primary-light: #E04E79;
-  --atomic-primary-dark: #B6254F;
+  --atomic-primary-dark: #751933;
   --atomic-on-primary: #ffffff;
   --atomic-ring-primary: rgba(224, 78, 121, 0.5);
 
@@ -20,6 +20,7 @@
 
   /* Border radius */
   --atomic-border-radius: 0.25rem;
+  --atomic-border-radius-md: 0.5rem;
   --atomic-border-radius-lg: 0.75rem;
   --atomic-border-radius-xl: 1rem;
 

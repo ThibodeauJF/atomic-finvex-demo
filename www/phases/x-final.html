@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../style/custom.css" />
     <script
       type="module"
-      src="https://staticdev.cloud.coveo.com/atomic/latest/atomic.esm.js"
+      src="https://staticdev.cloud.coveo.com/atomic/v1/atomic.esm.js"
     ></script>
     <script>
       (async () => {
@@ -24,7 +24,6 @@
           "atomic-search-interface"
         );
 
-        // Initialization
         await searchInterface.initialize({
           accessToken: "xxe1195d34-2a38-49ef-8da3-145f5dd3413a",
           organizationId: "partnersummittechzamples12mdow6y",
@@ -32,7 +31,13 @@
 
         searchInterface.executeFirstSearch();
 
-        // TODO: Add internationalization & field caption examples
+        searchInterface.i18n.addResourceBundle('en', 'translation', {
+          'sort-by': 'Order by',
+        });
+  
+        searchInterface.i18n.addResourceBundle('en', 'caption-worktitle', {
+          'workteam Lead': 'Team Lead',
+        });
       })();
     </script>
   </head>
@@ -56,13 +61,13 @@
         </div>
         <div class="facets">
           <atomic-facet-manager>
-            <atomic-facet-v1
+            <atomic-facet
               field="workdepartment"
               label="Department"
               display-values-as="box"
-            ></atomic-facet-v1>
-            <atomic-facet-v1 field="workteam" label="Team"></atomic-facet-v1>
-            <atomic-facet-v1 field="office" label="Office"></atomic-facet-v1>
+            ></atomic-facet>
+            <atomic-facet field="workteam" label="Team"></atomic-facet>
+            <atomic-facet field="office" label="Office" number-of-values=4></atomic-facet>
             <atomic-timeframe-facet field="workhiredate" label="Hired Date">
               <atomic-timeframe unit="year" amount="1"></atomic-timeframe>
               <atomic-timeframe unit="year" amount="3"></atomic-timeframe>
@@ -79,22 +84,22 @@
           <atomic-refine-toggle></atomic-refine-toggle>
           <atomic-sort-dropdown>
             <atomic-sort-expression
-              caption="Relevancy"
+              label="Relevancy"
               expression="relevancy"
             ></atomic-sort-expression>
             <atomic-sort-expression
-              caption="Senority"
+              label="Senority"
               expression="workhiredate ascending"
             ></atomic-sort-expression>
             <atomic-sort-expression
-              caption="Recently Hired"
+              label="Recently Hired"
               expression="workhiredate descending"
             ></atomic-sort-expression>
           </atomic-sort-dropdown>
         </div>
         <div class="results">
-          <atomic-result-list-v1
-            display="list"
+          <atomic-result-list
+            display="grid"
             image="small"
             fields-to-include="workhiredate,office,workteam,workdepartment,worktitle,picture,telephone,email"
           >
@@ -115,6 +120,12 @@
                   .field-label {
                     font-weight: var(--atomic-font-bold);
                   }
+
+                  @media (min-width: 1024px) {
+                    .result-root.with-sections.display-list.image-small {
+                      grid-template-rows: auto auto auto auto auto auto minmax(0, 1fr) !important;
+                    }
+                  }
                 </style>
                 <atomic-result-section-visual>
                   <atomic-result-image field="picture"></atomic-result-image>
@@ -129,7 +140,7 @@
                   <atomic-result-text field="excerpt"></atomic-result-text>
                 </atomic-result-section-excerpt>
                 <atomic-result-section-bottom-metadata>
-                  <atomic-result-fields-list-v1>
+                  <atomic-result-fields-list>
                     <div class="field">
                       <img src="../img/department.svg" alt="department" />
                       <atomic-result-text
@@ -156,18 +167,18 @@
                         field="workhiredate"
                       ></atomic-result-date>
                     </span>
-                  </atomic-result-fields-list-v1>
+                  </atomic-result-fields-list>
                 </atomic-result-section-bottom-metadata>
               </template>
             </atomic-result-template>
-          </atomic-result-list-v1>
+          </atomic-result-list>
         </div>
         <div class="pagination">
           <atomic-load-more-results></atomic-load-more-results>
         </div>
         <div class="status">
           <atomic-query-error></atomic-query-error>
-          <atomic-no-results-v1></atomic-no-results-v1>
+          <atomic-no-results></atomic-no-results>
         </div>
       </main>
     </atomic-search-interface>

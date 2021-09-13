@@ -71,8 +71,16 @@ main {
 }
 
 /* Atomic Specific Layout */
+.atomic-modal-opened {
+  overflow: hidden;
+}
+
 atomic-breadbox, .mobile-search-box {
   margin-bottom: var(--gap-y);
+}
+
+atomic-search-box {
+  height: 3rem;
 }
 
 .topbar {
@@ -83,9 +91,13 @@ atomic-breadbox, .mobile-search-box {
   align-items: center;
 }
 
-atomic-result-list-v1 {
+atomic-result-list {
   display: block;
   border-top: 1px solid var(--atomic-neutral);
+}
+
+.atomic-search-interface-no-results .topbar, .atomic-search-interface-no-results atomic-result-list {
+  border-top: none;
 }
 
 atomic-sort-dropdown {

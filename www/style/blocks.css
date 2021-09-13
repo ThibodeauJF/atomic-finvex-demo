@@ -8,7 +8,7 @@
 .status {
   justify-content: center;
   background-color: #e04e79;
-  border-radius: 15px;
+  border-radius: 1rem;
   color: white;
   text-align: center;
   padding: var(--gap-x);
@@ -26,7 +26,7 @@
 .search-box {
   color: white;
   padding: 10px 0;
-  border-radius: 15px;
+  border-radius: 1rem;
   background-color: #e04e79;
   text-align: center;
 }

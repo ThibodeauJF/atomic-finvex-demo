@@ -1,0 +1,12 @@
+/* Atomic Components Customization */
+atomic-facet[field="workdepartment"] {
+  --atomic-facet-boxes-per-row: 2;
+}
+
+atomic-facet-manager [is-collapsed]::part(label-button) {
+  color: var(--atomic-neutral);
+}
+
+atomic-facet-manager ::part(facet):hover {
+  border-color: var(--atomic-primary)
+}

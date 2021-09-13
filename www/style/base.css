@@ -2,9 +2,9 @@
 :root {
   --font-color: #504a49;
   --bg-color: #f4f1f0;
-  --page-spacing: 16px;
-  --gap-x: 24px;
-  --gap-y: 16px;
+  --page-spacing: 1rem;
+  --gap-x: 1.5rem;
+  --gap-y: 1rem;
 }
 
 body {
@@ -31,7 +31,7 @@ header {
 
 nav {
   display: none;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .menu {
@@ -47,7 +47,7 @@ nav a {
 
 @media only screen and (min-width: 1024px) {
   :root {
-    --page-spacing: 32px;
+    --page-spacing: 2rem;
   }
 
   nav {
