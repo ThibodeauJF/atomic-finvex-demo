@@ -1,19 +1,19 @@
 :root {
   /* Primary colors */
-  --atomic-primary: #B6254F;
-  --atomic-primary-light: #E04E79;
+  --atomic-primary: #b6254f;
+  --atomic-primary-light: #e04e79;
   --atomic-primary-dark: #751933;
   --atomic-on-primary: #ffffff;
   --atomic-ring-primary: rgba(224, 78, 121, 0.5);
 
   /* Neutral colors */
-  --atomic-neutral-dark: #7E7573;
-  --atomic-neutral: #E7E3E3;
+  --atomic-neutral-dark: #7e7573;
+  --atomic-neutral: #e7e3e3;
   --atomic-neutral-light: #f5f2f2;
 
   /* Semantic colors */
   --atomic-background: #ffffff;
-  --atomic-on-background: #2F2C2B;
+  --atomic-on-background: #2f2c2b;
   --atomic-success: #12a244;
   --atomic-error: #ce3f00;
   --atomic-visited: #752e9c;

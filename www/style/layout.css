@@ -75,7 +75,8 @@ main {
   overflow: hidden;
 }
 
-atomic-breadbox, .mobile-search-box {
+atomic-breadbox,
+.mobile-search-box {
   margin-bottom: var(--gap-y);
 }
 
@@ -96,7 +97,8 @@ atomic-result-list {
   border-top: 1px solid var(--atomic-neutral);
 }
 
-.atomic-search-interface-no-results .topbar, .atomic-search-interface-no-results atomic-result-list {
+.atomic-search-interface-no-results .topbar,
+.atomic-search-interface-no-results atomic-result-list {
   border-top: none;
 }
 

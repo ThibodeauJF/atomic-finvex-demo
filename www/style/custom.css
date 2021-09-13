@@ -8,5 +8,5 @@ atomic-facet-manager [is-collapsed]::part(label-button) {
 }
 
 atomic-facet-manager ::part(facet):hover {
-  border-color: var(--atomic-primary)
+  border-color: var(--atomic-primary);
 }
