@@ -32,6 +32,25 @@
         searchInterface.executeFirstSearch();
       })();
     </script>
+    <style>
+      atomic-facet-manager [is-collapsed]::part(label-button) {
+        color: var(--atomic-neutral);
+      }
+
+      atomic-facet-manager ::part(facet):hover {
+        border-color: var(--atomic-primary);
+      }
+
+      /* Does not work */
+      atomic-facet * {
+        background-color: orange;
+      }
+
+      /* Works */
+      /* atomic-facet::part(facet) {
+        background-color: orange;
+      } */
+    </style>
   </head>
   <body>
     <atomic-search-interface>

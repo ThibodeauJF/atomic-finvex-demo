@@ -35,6 +35,16 @@
       atomic-facet[field="workdepartment"] {
         --atomic-facet-boxes-per-row: 2;
       }
+
+      /* Does not work */
+      atomic-facet * {
+        background-color: orange;
+      }
+
+      /* Works */
+      /* atomic-facet {
+        --atomic-background: orange;
+      } */
     </style>
   </head>
   <body>
