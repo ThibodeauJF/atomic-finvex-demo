@@ -45,6 +45,21 @@ nav a {
   margin-right: var(--gap-x);
 }
 
+.prev, .next {
+  position: fixed;
+  text-decoration: none;
+  font-size: 1.7rem;
+  top: 50vh;
+}
+
+.next {
+  right: 3px;
+}
+
+.prev {
+  left: 3px;
+}
+
 @media only screen and (min-width: 1024px) {
   :root {
     --page-spacing: 2rem;

@@ -50,7 +50,7 @@ main {
 @media only screen and (min-width: 1024px) {
   main {
     column-gap: var(--gap-x);
-    grid-template-columns: 1fr minmax(150px, 325px) minmax(500px, 1100px) 1fr;
+    grid-template-columns: 1fr 300px minmax(500px, 1100px) 1fr;
     grid-template-areas:
       ". facets breadbox    ."
       ". facets topbar      ."

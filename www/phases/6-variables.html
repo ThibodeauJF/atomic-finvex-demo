@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finvex X: Final</title>
+    <title>Finvex 4: Components</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../style/base.css" />
     <link rel="stylesheet" href="../style/layout.css" />
     <link rel="stylesheet" href="../style/variables.css" />
-    <link rel="stylesheet" href="../style/custom.css" />
     <script
       type="module"
       src="https://staticdev.cloud.coveo.com/atomic/v1/atomic.esm.js"
@@ -30,16 +29,13 @@
         });
 
         searchInterface.executeFirstSearch();
-
-        searchInterface.i18n.addResourceBundle('en', 'translation', {
-          'sort-by': 'Order by',
-        });
-  
-        searchInterface.i18n.addResourceBundle('en', 'caption-worktitle', {
-          'workteam Lead': 'Team Lead',
-        });
       })();
     </script>
+    <style>
+      atomic-facet[field="workdepartment"] {
+        --atomic-facet-boxes-per-row: 2;
+      }
+    </style>
   </head>
   <body>
     <atomic-search-interface>
@@ -67,7 +63,11 @@
               display-values-as="box"
             ></atomic-facet>
             <atomic-facet field="workteam" label="Team"></atomic-facet>
-            <atomic-facet field="office" label="Office" number-of-values=4></atomic-facet>
+            <atomic-facet
+              field="office"
+              label="Office"
+              number-of-values="4"
+            ></atomic-facet>
             <atomic-timeframe-facet field="workhiredate" label="Hired Date">
               <atomic-timeframe unit="year" amount="1"></atomic-timeframe>
               <atomic-timeframe unit="year" amount="3"></atomic-timeframe>
@@ -101,10 +101,22 @@
           <atomic-result-list
             display="grid"
             image="small"
+            density="compact"
             fields-to-include="workhiredate,office,workteam,workdepartment,worktitle,picture,telephone,email"
           >
             <atomic-result-template>
               <template>
+                <style>
+                  /* Temporary styling for demo purposes */
+                  @media (min-width: 1024px) {
+                    .result-root.with-sections.display-list.image-small {
+                      grid-template-rows: auto auto auto auto auto auto minmax(
+                          0,
+                          1fr
+                        ) !important;
+                    }
+                  }
+                </style>
                 <style>
                   .field {
                     display: inline-flex;
@@ -120,37 +132,41 @@
                   .field-label {
                     font-weight: var(--atomic-font-bold);
                   }
-
-                  @media (min-width: 1024px) {
-                    .result-root.with-sections.display-list.image-small {
-                      grid-template-rows: auto auto auto auto auto auto minmax(0, 1fr) !important;
-                    }
-                  }
                 </style>
+
                 <atomic-result-section-visual>
                   <atomic-result-image field="picture"></atomic-result-image>
                 </atomic-result-section-visual>
+
+                <atomic-result-section-badges>
+                  <atomic-result-badge
+                    icon="../img/department.svg"
+                    field="workdepartment"
+                  ></atomic-result-badge>
+                  <atomic-result-badge
+                    icon="../img/location.svg"
+                    field="office"
+                  ></atomic-result-badge>
+                </atomic-result-section-badges>
+
                 <atomic-result-section-title>
                   <atomic-result-link></atomic-result-link>
                 </atomic-result-section-title>
+
                 <atomic-result-section-title-metadata>
                   <atomic-result-text field="worktitle"></atomic-result-text>
                 </atomic-result-section-title-metadata>
+
+                <atomic-result-section-actions>
+                  <atomic-result-date field="workhiredate"></atomic-result-date>
+                </atomic-result-section-actions>
+
                 <atomic-result-section-excerpt>
                   <atomic-result-text field="excerpt"></atomic-result-text>
                 </atomic-result-section-excerpt>
+
                 <atomic-result-section-bottom-metadata>
                   <atomic-result-fields-list>
-                    <div class="field">
-                      <img src="../img/department.svg" alt="department" />
-                      <atomic-result-text
-                        field="workdepartment"
-                      ></atomic-result-text>
-                    </div>
-                    <div class="field">
-                      <img src="../img/location.svg" alt="office" />
-                      <atomic-result-text field="office"></atomic-result-text>
-                    </div>
                     <div class="field">
                       <img src="../img/email.svg" alt="email" />
                       <atomic-result-text field="email"></atomic-result-text>
@@ -161,12 +177,6 @@
                         field="telephone"
                       ></atomic-result-text>
                     </div>
-                    <span class="field">
-                      <span class="field-label">Joined:</span>
-                      <atomic-result-date
-                        field="workhiredate"
-                      ></atomic-result-date>
-                    </span>
                   </atomic-result-fields-list>
                 </atomic-result-section-bottom-metadata>
               </template>
@@ -182,5 +192,7 @@
         </div>
       </main>
     </atomic-search-interface>
+    <a class="prev" title="Previous" href="./5-templates.html">⬅️</a>
+    <a class="next" title="Next" href="./7-parts.html">➡️</a>
   </body>
 </html>
