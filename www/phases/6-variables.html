@@ -11,11 +11,14 @@
     />
     <link rel="stylesheet" href="../style/base.css" />
     <link rel="stylesheet" href="../style/layout.css" />
-    <link rel="stylesheet" href="../style/variables.css" />
     <script
       type="module"
       src="https://staticdev.cloud.coveo.com/atomic/v1/atomic.esm.js"
     ></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://staticdev.cloud.coveo.com/atomic/v1/themes/accessible.css"
+    /> -->
     <script>
       (async () => {
         await customElements.whenDefined("atomic-search-interface");
@@ -32,6 +35,45 @@
       })();
     </script>
     <style>
+      :root {
+        /* Primary colors */
+        --atomic-primary: #b6254f;
+        --atomic-primary-light: #e04e79;
+        --atomic-primary-dark: #751933;
+        --atomic-on-primary: #ffffff;
+        --atomic-ring-primary: rgba(224, 78, 121, 0.5);
+
+        /* Neutral colors */
+        --atomic-neutral-dark: #7e7573;
+        --atomic-neutral: #e7e3e3;
+        --atomic-neutral-light: #f5f2f2;
+
+        /* Semantic colors */
+        --atomic-background: #ffffff;
+        --atomic-on-background: #2f2c2b;
+        --atomic-success: #12a244;
+        --atomic-error: #ce3f00;
+        --atomic-visited: #752e9c;
+
+        /* Border radius */
+        --atomic-border-radius: 0.25rem;
+        --atomic-border-radius-md: 0.5rem;
+        --atomic-border-radius-lg: 0.75rem;
+        --atomic-border-radius-xl: 1rem;
+
+        /* Font */
+        --atomic-font-family: Lato, sans-serif;
+        --atomic-font-normal: 400;
+        --atomic-font-bold: 700;
+
+        /* Text size */
+        --atomic-text-base: 0.875rem; /* 14px */
+        --atomic-text-sm: 0.75rem; /* 12px */
+        --atomic-text-lg: 1rem; /* 16px */
+        --atomic-text-xl: 1.125rem; /* 18px */
+        --atomic-text-2xl: 1.5rem; /* 24px */
+      }
+
       atomic-facet[field="workdepartment"] {
         --atomic-facet-boxes-per-row: 2;
       }
@@ -90,7 +132,7 @@
           <atomic-breadbox></atomic-breadbox>
         </div>
         <div class="topbar">
-          <atomic-query-summary enable-duration="false"></atomic-query-summary>
+          <atomic-query-summary></atomic-query-summary>
           <atomic-refine-toggle></atomic-refine-toggle>
           <atomic-sort-dropdown>
             <atomic-sort-expression

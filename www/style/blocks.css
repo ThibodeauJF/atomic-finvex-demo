@@ -25,9 +25,8 @@
 
 .search-box {
   color: white;
-  padding: 10px 0;
+  padding: 16px;
   border-radius: 1rem;
   background-color: #e04e79;
   text-align: center;
-  height: 28px;
 }

@@ -10,8 +10,79 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
     <link rel="stylesheet" href="../style/base.css" />
-    <link rel="stylesheet" href="../style/layout.css" />
     <link rel="stylesheet" href="../style/blocks.css" />
+    <style>
+      main {
+        margin: var(--gap-x) 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "search-box"
+          "breadbox  "
+          "topbar    "
+          "results   "
+          "pagination"
+          "status    "
+          ".         ";
+      }
+
+      .mobile-search-box {
+        grid-area: search-box;
+      }
+
+      .facets {
+        grid-area: facets;
+        display: none;
+      }
+
+      .breadbox {
+        grid-area: breadbox;
+      }
+
+      .topbar {
+        grid-area: topbar;
+      }
+
+      .results {
+        grid-area: results;
+      }
+
+      .pagination {
+        grid-area: pagination;
+      }
+
+      .status {
+        grid-area: status;
+      }
+
+      .search-box {
+        width: 300px;
+        display: none;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        main {
+          column-gap: var(--gap-x);
+          grid-template-columns: 1fr 300px minmax(500px, 1100px) 1fr;
+          grid-template-areas:
+            ". facets breadbox    ."
+            ". facets topbar      ."
+            ". facets results     ."
+            ". facets pagination  ."
+            ". facets status      ."
+            ". facets .           .";
+        }
+
+        .facets,
+        .search-box {
+          display: block;
+        }
+
+        .mobile-search-box {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
