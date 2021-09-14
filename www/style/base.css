@@ -49,16 +49,17 @@ nav a {
 .next {
   position: fixed;
   text-decoration: none;
-  font-size: 1.7rem;
+  font-size: 1rem;
+  opacity: 80%;
   top: 50vh;
 }
 
 .next {
-  right: 3px;
+  right: 8px;
 }
 
 .prev {
-  left: 3px;
+  left: 8px;
 }
 
 @media only screen and (min-width: 1024px) {
