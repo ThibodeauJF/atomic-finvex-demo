@@ -1,4 +1,4 @@
-/* Basic Atomic Mobile-First Layout */
+/* Atomic Mobile-First Layout */
 main {
   margin: var(--gap-x) 0;
   display: grid;
@@ -15,6 +15,7 @@ main {
 
 .mobile-search-box {
   grid-area: search-box;
+  margin-bottom: var(--gap-y);
 }
 
 .facets {
@@ -23,11 +24,16 @@ main {
 }
 
 .breadbox {
+  margin-bottom: var(--gap-y);
   grid-area: breadbox;
 }
 
 .topbar {
   grid-area: topbar;
+  margin-bottom: var(--gap-y);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .results {
@@ -40,6 +46,18 @@ main {
 
 .status {
   grid-area: status;
+}
+
+.atomic-modal-opened {
+  overflow: hidden;
+}
+
+atomic-sort-dropdown {
+  display: none;
+}
+
+atomic-facet-manager > * {
+  margin-bottom: var(--gap-y);
 }
 
 .search-box {
@@ -68,38 +86,7 @@ main {
   .mobile-search-box {
     display: none;
   }
-}
 
-/* Atomic Specific Layout */
-.atomic-modal-opened {
-  overflow: hidden;
-}
-
-atomic-breadbox,
-.mobile-search-box {
-  margin-bottom: var(--gap-y);
-}
-
-atomic-search-box {
-  height: 3rem;
-}
-
-.topbar {
-  margin-bottom: var(--gap-y);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-atomic-sort-dropdown {
-  display: none;
-}
-
-atomic-facet-manager > * {
-  margin-bottom: var(--gap-y);
-}
-
-@media only screen and (min-width: 1024px) {
   atomic-sort-dropdown {
     display: block;
   }
