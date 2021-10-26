@@ -6,7 +6,7 @@
         "url": "git+https://github.com/ThibodeauJF/atomic-finvex-demo.git"
     },
     "scripts": {
-        "start": "serve www"
+        "start": "serve"
     },
     "devDependencies": {
         "serve": "^11.2.0"
