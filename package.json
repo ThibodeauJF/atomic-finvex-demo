@@ -1,5 +1,15 @@
 {
+    "name": "atomic-finvex-demo",
+    "main": "www/1-empty.html",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ThibodeauJF/atomic-finvex-demo.git"
+    },
     "scripts": {
-        "start": "npx serve www -l 3333"
-    }
+        "start": "serve www"
+    },
+    "devDependencies": {
+        "serve": "^11.2.0"
+    },
+    "author": "Jean-Felix Thibodeau"
 }
