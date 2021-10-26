@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finvex 7: Shadow Parts</title>
+    <title>Finvex 8: I18N</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
-    <link rel="stylesheet" href="../style/base.css" />
-    <link rel="stylesheet" href="../style/layout.css" />
-    <link rel="stylesheet" href="../style/variables.css" />
-    <link rel="stylesheet" href="../style/custom.css" />
+    <link rel="stylesheet" href="style/base.css" />
+    <link rel="stylesheet" href="style/layout.css" />
+    <link rel="stylesheet" href="style/variables.css" />
+    <link rel="stylesheet" href="style/custom.css" />
     <script
       type="module"
       src="https://staticdev.cloud.coveo.com/atomic/v1/atomic.esm.js"
@@ -30,33 +30,22 @@
         });
 
         searchInterface.executeFirstSearch();
+
+        searchInterface.i18n.addResourceBundle("en", "translation", {
+          "sort-by": "Order by",
+        });
+
+        searchInterface.i18n.addResourceBundle("en", "caption-worktitle", {
+          "workteam Lead": "Team Lead",
+        });
       })();
     </script>
-    <style>
-      atomic-facet-manager [is-collapsed]::part(label-button) {
-        color: var(--atomic-neutral);
-      }
-
-      atomic-facet-manager ::part(facet):hover {
-        border-color: var(--atomic-primary);
-      }
-
-      /* Does not work */
-      atomic-facet * {
-        background-color: orange;
-      }
-
-      /* Works */
-      /* atomic-facet::part(facet) {
-        border: 3px dashed orange;
-      } */
-    </style>
   </head>
   <body>
     <atomic-search-interface>
       <header>
-        <img class="menu" src="../img/menu.png" alt="Menu" />
-        <img class="logo" src="../img/logo.png" alt="Finvex" />
+        <img class="menu" src="img/menu.png" alt="Menu" />
+        <img class="logo" src="img/logo.png" alt="Finvex" />
         <nav>
           <a href="#">Home</a>
           <a href="#">People</a>
@@ -155,11 +144,11 @@
 
                 <atomic-result-section-badges>
                   <atomic-result-badge
-                    icon="../img/department.svg"
+                    icon="./img/department.svg"
                     field="workdepartment"
                   ></atomic-result-badge>
                   <atomic-result-badge
-                    icon="../img/location.svg"
+                    icon="./img/location.svg"
                     field="office"
                   ></atomic-result-badge>
                 </atomic-result-section-badges>
@@ -183,11 +172,11 @@
                 <atomic-result-section-bottom-metadata>
                   <atomic-result-fields-list>
                     <div class="field">
-                      <img src="../img/email.svg" alt="email" />
+                      <img src="img/email.svg" alt="email" />
                       <atomic-result-text field="email"></atomic-result-text>
                     </div>
                     <div class="field">
-                      <img src="../img/phone.svg" alt="phone" />
+                      <img src="img/phone.svg" alt="phone" />
                       <atomic-result-text
                         field="telephone"
                       ></atomic-result-text>
@@ -209,8 +198,7 @@
     </atomic-search-interface>
 
     <!-- For demo navigation purposes -->
-    <script src="../script/arrows.js"></script>
-    <a class="prev" title="Previous" href="./6-variables.html">⬅️</a>
-    <a class="next" title="Next" href="./8-captions.html">➡️</a>
+    <script src="script/arrows.js"></script>
+    <a class="prev" title="Previous" href="./7-parts.html">⬅️</a>
   </body>
 </html>
