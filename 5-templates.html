@@ -20,18 +20,51 @@
       src="https://staticdev.cloud.coveo.com/atomic/v1/atomic.esm.js"
     ></script>
     <script>
-      (async () => {
-        await customElements.whenDefined("atomic-search-interface");
-        const searchInterface = document.querySelector(
-          "atomic-search-interface"
-        );
+      function createSelect(options, defaultValue, onChange) {
+        const selectEl = document.createElement('select')
+        options.forEach(([name, label]) => {
+          const optionEl = document.createElement('option');
+          optionEl.value = name;
+          optionEl.innerText = label;
+          selectEl.appendChild(optionEl);
+        });
+        selectEl.value = defaultValue;
+        selectEl.addEventListener('change', (e) => onChange(e.target.value));
+        return selectEl;
+      }
 
+      (async () => {
+        await customElements.whenDefined('atomic-search-interface');
+        const searchInterface = document.querySelector('atomic-search-interface');
+
+        // Initialization
         await searchInterface.initialize({
           accessToken: "xxe1195d34-2a38-49ef-8da3-145f5dd3413a",
           organizationId: "partnersummittechzamples12mdow6y",
         });
 
+        // Trigger a first search
         searchInterface.executeFirstSearch();
+
+        const resultList = document.querySelector('atomic-result-list');
+        const container = document.createElement('div');
+        container.setAttribute('style', 'position: fixed; z-index: 1; top: 0; left: 0');
+        container.appendChild(createSelect(
+          [['grid', 'Grid'], ['list', "List"]],
+          'grid',
+          (v) => resultList.setAttribute('display', v)
+        ));
+        container.appendChild(createSelect(
+          [['large', 'Large'], ['small', "Small"], ['icon', "Icon"], ['none', "None"]],
+          'small',
+          (v) => resultList.setAttribute('image', v)
+        ));
+        container.appendChild(createSelect(
+          [['comfortable', 'Comfortable'], ['normal', "Normal"], ['compact', "Compact"]],
+          'compact',
+          (v) => resultList.setAttribute('density', v)
+        ));
+        document.body.appendChild(container);
       })();
     </script>
   </head>
